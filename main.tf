@@ -3,9 +3,9 @@ locals {
   postgres_identifier    = pg_autoservico_id
   postgres_name          = pg_autoservico_name
   postgres_user_name     = test
-  postgres_user_password = ${{ secrets.POSTGRES_USER_PASSWORD }}
+  postgres_user_password = POSTGRES_USER_PASSWORD
   postgres_instance_name = pgautoservico_instance
-  postgres_db_password   = ${{ secrets.POSTGRES_DB_PASSWORD }}
+  postgres_db_password   = POSTGRES_DB_PASSWORD
   postgres_port          = 5432
 
 }
