@@ -59,7 +59,7 @@ resource "aws_db_instance" "instance_name" {
   password               = local.postgres_db_password
   publicly_accessible    = true
   parameter_group_name   = "default.postgres12"
-#   vpc_security_group_ids = [aws_security_group.<security_group_name>.id]
+  vpc_security_group_ids = [aws_security_group.security_group_name.id]
   skip_final_snapshot    = true
 }
 
