@@ -12,7 +12,7 @@ locals {
 
 // PROVIDERS
 provider "aws" {
-  region             = "us-east-1"
+  region = "us-east-1"
 }
 
 provider "postgresql" {
@@ -35,7 +35,7 @@ resource "aws_security_group" "security_group_name" {
     to_port     = local.postgres_port
     protocol    = "tcp"
     description = "PostgreSQL"
-    cidr_blocks = ["0.0.0.0/0"] // >
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -43,23 +43,23 @@ resource "aws_security_group" "security_group_name" {
     to_port          = local.postgres_port
     protocol         = "tcp"
     description      = "PostgreSQL"
-    ipv6_cidr_blocks = ["::/0"] // >
+    ipv6_cidr_blocks = ["::/0"]
   }
 }
 
 resource "aws_db_instance" "instance_name" {
-  allocated_storage      = 20
-  storage_type           = "gp2"
-  engine                 = "postgres"
-  engine_version         = "12.2"
-  instance_class         = "db.t2.micro"
-  identifier             = local.postgres_identifier
-  name                   = local.postgres_instance_name
-  username               = local.postgres_user_name
-  password               = local.postgres_db_password
-  publicly_accessible    = true
-  parameter_group_name   = "default.postgres12"
-  skip_final_snapshot    = true
+  allocated_storage    = 20
+  storage_type         = "gp2"
+  engine               = "postgres"
+  engine_version       = "12.2"
+  instance_class       = "db.t2.micro"
+  identifier           = local.postgres_identifier
+  name                 = local.postgres_instance_name
+  username             = local.postgres_user_name
+  password             = local.postgres_db_password
+  publicly_accessible  = true
+  parameter_group_name = "default.postgres12"
+  skip_final_snapshot  = true
 }
 
 resource "postgresql_role" "user_name" {
