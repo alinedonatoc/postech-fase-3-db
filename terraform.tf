@@ -32,7 +32,7 @@ terraform {
     }
 
     postgresql = { # This line is what needs to change.
-      source = "cyrilgdn/postgresql"
+      source  = "cyrilgdn/postgresql"
       version = "1.15.0"
     }
   }
