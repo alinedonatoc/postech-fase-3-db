@@ -30,6 +30,11 @@ terraform {
       source  = "hashicorp/cloudinit"
       version = "~> 2.3.2"
     }
+
+    postgresql = { # This line is what needs to change.
+      source = "cyrilgdn/postgresql"
+      version = "1.15.0"
+    }
   }
 
   required_version = "~> 1.3"
