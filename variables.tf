@@ -6,7 +6,7 @@ variable "region" {
   description = "AWS region"
 }
 
-variable "db_password" {
+variable "POSTGRES_DB_PASSWORD" {
   description = "RDS root user password"
   sensitive   = true
 }
