@@ -10,3 +10,8 @@ variable "POSTGRES_DB_PASSWORD" {
   description = "RDS root user password"
   sensitive   = true
 }
+
+variable "POSTGRES_USER_PASSWORD" {
+  description = "RDS root user name"
+  sensitive   = false
+}
