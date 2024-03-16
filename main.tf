@@ -29,7 +29,7 @@ resource "aws_db_subnet_group" "education" {
 
 resource "aws_security_group" "rds" {
   name   = "education_rds"
-  vpc_id = "education"
+  vpc_id = module.vpc.vpc_id
 
   ingress {
     from_port   = 5432
