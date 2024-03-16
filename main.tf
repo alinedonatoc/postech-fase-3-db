@@ -1,10 +1,3 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
-
-provider "aws" {
-  region = var.region
-}
-
 data "aws_availability_zones" "available" {}
 
 module "vpc" {
@@ -31,7 +24,7 @@ resource "aws_db_subnet_group" "education" {
 
 resource "aws_security_group" "rds" {
   name   = "education_rds"
-  vpc_id = module.vpc.vpc_id
+  vpc_id = "education"
 
   ingress {
     from_port   = 5432
@@ -70,7 +63,6 @@ resource "aws_db_instance" "education" {
   engine_version         = "14.11"
   username               = "edu"
   password               = var.POSTGRES_DB_PASSWORD
-  db_subnet_group_name   = aws_db_subnet_group.education.name
   vpc_security_group_ids = [aws_security_group.rds.id]
   parameter_group_name   = aws_db_parameter_group.education.name
   publicly_accessible    = true
