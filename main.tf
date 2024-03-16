@@ -19,6 +19,7 @@ module "vpc" {
   enable_dns_support   = true
 }
 
+
 resource "aws_db_subnet_group" "education" {
   name       = "education"
   subnet_ids = module.vpc.public_subnets
